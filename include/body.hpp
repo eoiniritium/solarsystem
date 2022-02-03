@@ -3,6 +3,7 @@
 #include "raylib.h"
 #include <vector>
 #include <cmath>
+#include "logger.hpp"
 
 const double gravConstant = 6.7408e-11;
 
@@ -28,6 +29,7 @@ class Body
         this->y = y;
 
         this->color = color;
+
     }
     
     bodyStruct outputInfo()
@@ -117,6 +119,7 @@ class Body
     int x, y;
 
     Color color;
+
 };
 
 void printBodies(bodyStruct x)

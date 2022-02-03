@@ -14,11 +14,6 @@ int main()
     std::vector<Body> objs;
     std::vector<bodyStruct> locations; // List of all bodies location and mass for gravity calculations
 
-    // LOGGING
-    Logger log("log.txt");
-    log.clearFile();
-    log.writeToFile("This is the logger");
-
     // Settings io
     {
         std::cout << "Number of bodies in simulation: ";
@@ -70,4 +65,6 @@ int main()
             EndDrawing();
         }
     }
+
+    return 0;
 }
