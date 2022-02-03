@@ -2,9 +2,6 @@
 
 #include<iostream>
 #include<fstream>
-#include<stdarg.h>
-
-#define BUF_SIZE 100
 
 class Logger
 {   public:
