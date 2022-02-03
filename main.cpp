@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "body.hpp"
+#include "logger.hpp"
 
 const int sw = 1280;
 const int sh = 720;
@@ -12,6 +13,11 @@ int main()
     int numBodies, fps;
     std::vector<Body> objs;
     std::vector<bodyStruct> locations; // List of all bodies location and mass for gravity calculations
+
+    // LOGGING
+    Logger log("log.txt");
+    log.clearFile();
+    log.writeToFile("This is the logger");
 
     // Settings io
     {
@@ -47,7 +53,6 @@ int main()
             for(int i = 0; i < numBodies; ++i)
             {
                 locations.push_back(objs[i].outputInfo());
-                printBodies(locations[i]);
             }
         }
 
