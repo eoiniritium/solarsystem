@@ -2,6 +2,7 @@
 #include <iostream>
 #include <math.h>
 #include "logger.hpp"
+#include "raylib.h"
 
 typedef struct
 {
@@ -20,14 +21,18 @@ class Object
     double mass;
     loc location;
     loc velocity;
+    int radius;
+    Color colour;
     
     
     public:
-    Object(double mass, loc location, loc initialVelocity)
+    Object(double mass, loc location, loc initialVelocity, int radius, Color colour=WHITE)
     {
         this->mass = mass;
         this->location = location;
         this->velocity = initialVelocity;
+        this->radius = radius;
+        this->colour = colour;
     }
 
     void updateVelocity(obj other)
@@ -45,14 +50,15 @@ class Object
         velocity.y += delta.y;
     }
 
-    void updatePosition()
+    void updatePosition(int multiplier)
     {
-        location.x += velocity.x;
-        location.y += velocity.y;
+        location.x += (velocity.x) * multiplier;
+        location.y += (velocity.y) * multiplier;
     }
 
     void draw()
     {
+        DrawCircle(location.x, location.y, radius, colour);
         printf("X: %f Y: %f\n", location.x, location.y);
     }
 
