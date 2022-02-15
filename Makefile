@@ -1,3 +1,3 @@
 default:
-	g++ main.cpp -o main.exe -O2 --static -static-libgcc -static-libstdc++ -Wno-missing-braces -I raylib/include -L raylib/lib/ -lraylib -lopengl32 -lgdi32 -lwinmm -I include
+	g++ main.cpp -o main.exe -I include
 	./main.exe

@@ -1,0 +1,3 @@
+In order
+1: Get simulation working with no graphics
+2: Get graphics working
