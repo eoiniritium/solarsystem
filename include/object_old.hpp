@@ -53,34 +53,27 @@ class Object
 
     void draw()
     {
-
+        printf("dx:%lf dy:%lf\n", velocity.x, velocity.y);
     }
 
     private:
-    double distanceToObject(loc a, loc b) // PASS
+    double distanceToObject(loc a, loc b)
     {
-        double res;
         double dx = fabs(a.x - b.x); // Fabs is float abs
         double dy = fabs(a.y - b.y);
 
-        res = sqrt(dx * dx + dy * dy);
-
-        return res;
+        return sqrt(dx + dy);
     }
 
     double forceGravity(double m1, double m2, double distance)
     {
-
         const double G = 6.67408e-11;
         double force;
 
         force = m1 * m2;
-        std::cout << force;
         force = force / distance * distance;
-// ---------------------------------------------------------------------------------------
-        force = force * G;
 
-        std::cout << force;
+        force = force * G;
 
         return force;
     }

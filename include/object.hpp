@@ -53,47 +53,53 @@ class Object
 
     void draw()
     {
-        printf("dx:%lf dy:%lf\n", velocity.x, velocity.y);
+        printf("X: %f Y: %f\n", location.x, location.y);
     }
 
     private:
-    double distanceToObject(loc a, loc b)
+    double distanceToObject(loc a, loc b) // PASS
     {
+        double res;
         double dx = fabs(a.x - b.x); // Fabs is float abs
         double dy = fabs(a.y - b.y);
 
-        return sqrt(dx + dy);
+        res = sqrt(dx * dx + dy * dy);
+
+        return res;
     }
 
-    double forceGravity(double m1, double m2, double distance)
+    double forceGravity(double m1, double m2, double distance) // PASS
     {
+
         const double G = 6.67408e-11;
         double force;
 
         force = m1 * m2;
-        force = force / distance * distance;
+        force = force / (distance * distance);
 
         force = force * G;
 
         return force;
     }
 
-    double acceleration(double force, double mass)
+    double acceleration(double force, double mass) // PASS
     {
-        return force / mass;
+        double res = force / mass;
+        return res;
     }
 
-    double radToDegrees(double radians)
+    double radToDegrees(double radians) // PASS
     {
-        return radians * (180 / 3.14);
+        double res = radians * (180 / 3.14);
+        return res;
     }
 
-    double angleToObject(loc a, loc b)
+    double angleToObject(loc a, loc b) // PASS
     {
         double k1, k2, k3;
 
         k1 = a.y - b.y;
-        k1 = a.x - b.x;
+        k2 = a.x - b.x;
 
         k3 = radToDegrees(atan2(k1, k2)) + 180;
         k3 = std::fmod(k3, 360);
@@ -101,12 +107,13 @@ class Object
         return k3;
     }
 
-    double theta(double angle)
+    double theta(double angle) // PASS
     {
-        return std::fmod(angle, 90);
+        double res = std::fmod(angle, 90);
+        return res;
     }
 
-    loc xySpeed(double acceleration, double theta)
+    loc xySpeed(double acceleration, double theta) // PASS
     {
         loc res;
 
@@ -116,7 +123,7 @@ class Object
         return res;
     }
 
-    loc sign(loc dxy, double angle)
+    loc sign(loc dxy, double angle) // PASS I THINK
     {
         loc res;
         if(angle > 0 && angle < 90) 

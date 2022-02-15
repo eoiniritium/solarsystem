@@ -1,8 +1,10 @@
 #include<iostream>
-#include "object_debug.hpp"
+#include "object.hpp"
 
 int main()
 {
+    int iters = 100;
+
     obj sun;
     sun.point.x = 6;
     sun.point.y = 7;
@@ -19,10 +21,13 @@ int main()
     double mass = 100;
 
     Object x(mass, location, velocity);
-    x.updateVelocity(sun);
-    x.updatePosition();
-    x.draw();
 
-
+    for(int i = 0; i < iters; ++i)
+    {
+        x.updateVelocity(sun);
+        x.updatePosition();
+        x.draw();
+    }
+    
     return 0;
 }
